@@ -2,5 +2,24 @@
 title: "Quarto 2"
 author: "Noelle Foster"
 format: html
+execute:
+    echo: false
+    message: false
 ---
 
+```{r}
+
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(palmerpenguins))
+```
+
+```{r}
+#| warning: false
+
+penguins |> 
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm, color = species)) +
+    geom_point() +
+    labs(title = "Penguins Body Mass compared to Flipper Length", 
+         x = "Body Mass", 
+         y = "Flipper Length")
+```
